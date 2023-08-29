@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+function App() {
+  const [contador, setContador] = useState(0);
+
+  function incrementar() {
+    setContador(contador + 1);
+  }
+
+  function decrementar() {
+    if (contador > 0) {
+      setContador(contador - 1);
+    }
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Contador de Pessoas</Text>
+      <Text style={styles.contador}>{contador}</Text>
+      <View style={styles.botoesContainer}>
+        <Button title="+" onPress={incrementar} color="green" />
+        <View style={styles.espacamento}></View>
+        <Button title="-" onPress={decrementar} color="red" />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'top',
+    alignItems: 'center',
+  },
+  titulo: {
+    fontSize: 24,
+    marginBottom: 50,
+  },
+  contador: {
+    fontSize: 36,
+    marginBottom: 40,
+  },
+  botoesContainer: {
+    marginTop: 20,
+    width: '30%',
+  },
+  espacamento: {
+    height: 10,
+  },
+});
+
+export default App;
